@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy: https://sleepy-gorge-22453.herokuapp.com/
+  provider: heroku
+  api_key:
+    secure: diIiaQ6Ymnf/SHEWmU6eBrW7xWtYrXJCVZAT6ApO52ogg7Scp6MdlPNhl2gvxT3ea1lCghX2u+t9M+zUKmcmfpsMyvugE9GE4sHzkx88YUXbtaOXnDAdXStfvXof0owjUt1oHYc9Pe8imGKgzWnuUbOh3OEOeQW+D7+TLajZhFEM4DfqEfKwC/TaPdi5Yhb2iR4jMSkqEB7OOnU5LioX7pemMSkKDnjjoklyaV9jybDOq9gDtRhtx1fGPp3y6fhJMWvORgKo3F0FpD5aTaGeFuOJvm5oNsxeZGEmgBqsDwXOrJL72m5yqJHCQDKXXMojc5YfQ/YuIZ8d1L6jvuMf6USdIGMMsNWtGaJiQRrIhTHe+eNvwLHumUllTQoE2v5ZlrE/aYc5yO19miFgX7vF9OzBdLBYkE7B4Cd6jYr2O7k15pmpsJu/CtaZbnGU4BMFXp2P+Rj8o2Vdf/q5akSEFpLeOPwHBv9yzI+ag66j2pcgKFs0UvApPDYNyxY6Dypac/YWFC4Rtyk41M0L16Gk5Y2glehfghE4Ofzenn8MhMrSxleCXxHqE4op0LNQOrvndanoe5Vy9VpHkhjO+Ul1ULfUMBIEMDPVeQTqIHImaAbI7M9K7PK261+/vYeuXi8wHrZ4/O3b5aCqZQZIo91rYmt16Qi28wTgE/Sp81T89GY=
+  app: capstone3
+  on:
+    repo: jhoglen1/capstone3
