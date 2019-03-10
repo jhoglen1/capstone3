@@ -59,5 +59,5 @@ function getAndDisplayCyclingWorkout() {
 }
 
 $(function() {
-    getAndDisplayCyclingWorkout();
+   getAndDisplayCyclingWorkout();
 })
