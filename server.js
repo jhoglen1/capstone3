@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const passport = require("passport");
-const { router: usersRouter } = require("./users");
+const { router: usersRouter } = require("./user");
 const { router: workoutsRouter } = require("./workouts");
 const { router: authorizeRouter, localStrategy, jwtStrategy } = require("./authorize");
 
@@ -33,7 +33,7 @@ app.use(express.static("public"));
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 
-app.use("/api/users/", usersRouter);
+app.use("/api/user/", userRouter);
 app.use("/api/workouts/", workoutsRouter);
 app.use("/api/authorize/", authorizeRouter);
 
