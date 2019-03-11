@@ -2,18 +2,11 @@ const express = require('express');
 
 const app = express();
 
-//const bodyParser = require('body-parser');
 
-
-
-
-//const {workout} = require('./public/app');
 
 app.use(express.static('public'));
 
-//app.get('/cyclingWorktout', (req, res) => {
-  //res.json(workout.get());
-//});
+
 
 
 
