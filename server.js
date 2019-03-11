@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const passport = require("passport");
-const { router: usersRouter } = require("./user");
+const { router: userRouter } = require("./user");
 const { router: workoutsRouter } = require("./workouts");
 const { router: authorizeRouter, localStrategy, jwtStrategy } = require("./authorize");
 
