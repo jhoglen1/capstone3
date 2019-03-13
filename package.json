@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "before-after-hook": "^1.4.0",
     "dotenv": "^6.2.0",
     "expres": "0.0.5",
     "express": "^4.16.4",

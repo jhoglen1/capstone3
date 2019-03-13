@@ -1,5 +1,5 @@
 
-const workout= {
+/*const workout= {
 	"cyclingWorkout": [
         {
             "id": "1111111",
@@ -61,3 +61,4 @@ function getAndDisplayCyclingWorkout() {
 $(function() {
    getAndDisplayCyclingWorkout();
 })
+*/
