@@ -1,11 +1,11 @@
 
-/*const workout= {
+const workout= {
 	"cyclingWorkout": [
         {
             "id": "1111111",
             "day": "Monday",
             "miles": "25 miles",
-            "hr": "130 bpm",
+            "hr": "130 bpm"
             
         },
         {
@@ -61,4 +61,3 @@ function getAndDisplayCyclingWorkout() {
 $(function() {
    getAndDisplayCyclingWorkout();
 })
-*/
