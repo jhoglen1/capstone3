@@ -35,6 +35,7 @@ describe('/api/users', function() {
     return User.remove({});
   });
 
+
   describe('/api/users', function() {
     describe('POST', function() {
       it('Should reject users with missing username', function() {
@@ -472,4 +473,4 @@ describe('/api/users', function() {
       });
     });
   });
-});
+}); 
