@@ -27,7 +27,7 @@ router.get("/", jwtAuth, (req, res) => {
         console.error(err);
         res.status(500).json({ error: "something went horribly awry" });
       });
-  });
+  }); 
 
   router.post("/", jwtAuth, jsonParser, (req, res) => {
     const requiredFields = [
