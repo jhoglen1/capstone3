@@ -1,37 +1,33 @@
-
 const authToken = localStorage.getItem("Bearer");
 
-let data = {
-    "day": "Monday",
-    "miles": 25,
-    "hr": 130
-};
-
-fetch ('/api/workouts/', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data),
-    headers: {
-        'Authorization': `Bearer ${authToken}`
-    },
-
+    let data = {
+        "day": "Monday",
+        "miles": 25,
+        "hr": 130
+    };
+fetch ('/api/authorize/login/', {
+  method: 'POST',
+  headers: {
+      'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
 })
 .then(response => {
-    
-    if (response.ok) {
-        return response.json();
-    } else {
-        throw new Error(response.statusText);
-    }
+  
+  if (response.ok) {
+      return response.json();
+  } else {
+      throw new Error(response.statusText);
+  }
 })
 .then (responseJson => {
-    
-   // Success callback from workout
+  
+  localStorage.setItem('Bearer', responseJson.token);
+  
+  $(location).attr("href", "./home.html")
 })
 .catch(error => {
-    console.log(error);
+  console.log(error);
 });
 
 function hideAllPages() {
@@ -100,6 +96,12 @@ $(".login-form").on("submit", function(e) {
     $("#landing-page").show();
   });
 
+  /* workouts page */
+
+  $("#projects-page").on("click", ".details", function() {
+    hideAllPages();
+  })
+
 
   /* registering page */
 
@@ -148,4 +150,5 @@ function register(user) {
       }
     };
     $.ajax(settings);
+  
   }

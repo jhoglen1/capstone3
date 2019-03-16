@@ -234,4 +234,4 @@ describe('Auth endpoints', function () {
         });
     });
   });
-});
+}); 

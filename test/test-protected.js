@@ -151,4 +151,4 @@ describe('Protected endpoint', function() {
         });
     });
   });
-});
+}); 
