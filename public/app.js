@@ -28,7 +28,7 @@ fetch ('/api/authorize/login/', {
 })
 .catch(error => {
   console.log(error);
-});
+}); 
 
 function hideAllPages() {
     $("#landing-page").hide();
@@ -98,9 +98,42 @@ $(".login-form").on("submit", function(e) {
 
   /* workouts page */
 
-  $("#projects-page").on("click", ".details", function() {
+  $("#workouts-page").on("click", ".details", function() {
     hideAllPages();
-  })
+  
+
+  let index = $(this)
+    .parent(".workout-section")
+    .attr("data-index");
+  let project = state.workouts[index];
+
+  
+});
+
+$(".update").on("click", function() {
+  hideAllPages();
+  $("#edit-page").show();
+});
+
+$("#workout").on("click", function() {
+  hideAllPages();
+  $("#edit-page").show();
+});
+
+$("#log-out").on("click", function() {
+  hideAllPages();
+  $("#landing-page").show();
+  localStorage.setItem("authToken", "");
+  $("#log-out").hide();
+});
+
+$("#workouts-page").on("click", ".delete", function() {
+  let id = $(this)
+    .parent(".workout-section")
+    .attr("data-id");
+  deleteWorkout(id);
+  showWorkoutsPage();
+});
 
 
   /* registering page */

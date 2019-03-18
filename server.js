@@ -8,7 +8,9 @@ const { router: userRouter } = require("./user");
 const { router: workoutsRouter } = require("./workouts");
 const { router: authorizeRouter, localStrategy, jwtStrategy } = require("./authorize");
 
+
 mongoose.Promise = global.Promise;
+mongoose.set('useCreateIndex', true);
 
 const { PORT, DATABASE_URL } = require("./config");
 
@@ -35,7 +37,7 @@ passport.use(jwtStrategy);
 
 app.use("/api/user/", userRouter);
 app.use("/api/workouts/", workoutsRouter);
-app.use("/api/authorize/", authorizeRouter);
+/*app.use("/api/authorize/", authorizeRouter);*/
 
 const jwtAuth = passport.authenticate("jwt", { session: false });
 

@@ -7,6 +7,8 @@ const router = express.Router();
 const jsonParser = bodyParser.json();
 const jwtAuth = passport.authenticate("jwt", { session: false });
 
+
+
 router.get("/", jwtAuth, (req, res) => {
     workouts.find({
       user: req.user.id
@@ -87,6 +89,7 @@ router.get("/", jwtAuth, (req, res) => {
     .then(updatedworkouts => res.status(204).end())
     .catch(err => res.status(500).json({ message: "Something went wrong" }));
 });
+
   
 
   module.exports = { router };

@@ -19,8 +19,7 @@
 		<div id="landing-page-intro">
 		  <h1>Can't remember how many miles you rode this week?</h1>
 		  <h2>Keep track with this app</h2>
-		  <button id="log-in">Log In</button>
-		  <button id="register">Register</button>
+		  
 		</div>
   
 		<section class="main-section">
@@ -39,7 +38,7 @@
 		</section>
 		<section class="section">
 		  <div class="text-container">
-			<h3>Cycling-Pro</h3>
+			
 			<p>
 				The last thing you don't want to do after a long hard workout is use a 
 				terrible website to store your data. Most of the are not very user 
@@ -47,7 +46,10 @@
 				your daily workouts. If it is a 30 minute ride or a 4 hour ride we are here
 				to make your life easier!
 			</p>
-			<h3>CHECK IT OUT!!</h3>
+			
+			<button id="log-in">Log In</button>
+			<button id="register">Register</button>
+			
 		  </div>
 		</section>
 	  </div>
@@ -81,7 +83,7 @@
 					  required
 					/>
 				   
-					<button type="submit">Enter</button>
+					<button type="submit-login">Enter</button>
 					<button class="back-to-landing">Back</button>
 				  </fieldset>
 				</form>
@@ -129,22 +131,33 @@
 				  required
 				/>
 	  
-				<label for="retype-password">Retype Password</label>
+				<label for="re-type-password">Re-type Password</label>
 				<input
 				  type="password"
 				  placeholder="Type again here"
-				  name="retype-password"
-				  id="retype-signup-password"
+				  name="re-type-password"
+				  id="re-type-signup-password"
 				  required
 				/>
 				<div id= "signup-error">
 				
 				</div>
-				<button type="submit">Sign-up</button>
+				<button type="submit-signup">Sign-up</button>
 				<button class="back-to-landing-page">Back</button>
 			  </fieldset>
 			</form>
-		  </div>
+			</div>
+			
+    <!------workoutss page-->
+
+    <div id="workouts-page" hidden>
+      <div class="workout-section">
+        <button id="workout">Add a Project</button>
+        <h4>Workouts</h4>
+        <br />
+        <div id="workout-results"></div>
+      </div>
+    </div>
 	<script
 	src="http://code.jquery.com/jquery-3.3.1.js"
 	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
