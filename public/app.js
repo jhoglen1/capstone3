@@ -105,7 +105,7 @@ $(".login-form").on("submit", function(e) {
   let index = $(this)
     .parent(".workout-section")
     .attr("data-index");
-  let project = state.workouts[index];
+  let workout = state.workouts[index];
 
   
 });
@@ -174,7 +174,7 @@ function register(user) {
         console.log("successfully logged in");
         localStorage.setItem("authToken", data.authToken);
         state.token = data.authToken;
-        showProjectsPage();
+        showWorkoutsPage();
         $("#log-out").show();
       },
       error: function(err) {
