@@ -5,7 +5,7 @@ const authToken = localStorage.getItem("Bearer");
         "miles": 25,
         "hr": 130
     };
-/*fetch ('/api/authorize/login/', {
+fetch ('/api/authorize/login/', {
   method: 'POST',
   headers: {
       'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ const authToken = localStorage.getItem("Bearer");
 .catch(error => {
   console.log(error);
 }); 
-*/
+
 function hideAllPages() {
     $("#landing-page").hide();
     $("#signup-page").hide();
