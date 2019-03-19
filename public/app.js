@@ -88,11 +88,11 @@ function register(user) {
       error: function(err) {
         console.log(err);
         console.log(user);
-        if (user.password.length < 10) {
-          $("#signup-error").html("Password must be at least 10 characters");
-        }
+       // if (user.password.length ) ;
+
+        
         if (user.password !== user.retype) {
-          $("#signup-error").html("Passwords must match");
+          $("#signup-error").html("Passwords must match </br> ");
         }
       }
     };

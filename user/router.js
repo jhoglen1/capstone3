@@ -55,7 +55,7 @@ if (nonStringField){
         min: 1
       },
       password: {
-        min: 10,
+       // min: 10,
       
         max: 72
       }
