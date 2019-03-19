@@ -8,27 +8,51 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<h1>Cycling Pro</h1>
-	
+  <h1>Cycling Pro</h1>
+  
 
 
  
 
-	   
+     
     <!--workouts page-->
 
     <div id="workouts-page" >
       <div class="workout-section">
-				<button id="work">Add a workout</button>
-				
-        <h4>Workouts</h4>
+          <h2>Workouts</h2>
+        <button id="work">Add a workout</button>
+        
+       
         <br />
-				<div id="workout-results"></div>
-				<button class="log-out">Log out</button>
+        <div id="workout-results" ></div>
+        <div class="daily" hidden>
+              <div class="content">
+                <input placeholder="Day" type="text" id="today" required>
+              </div>
+              <div class="content">
+                <input placeholder="Miles" type="text" id="today_miles">
+              </div>
+              <div class="content">
+                <input placeholder="HR" type="text" id="today_HR" required>
+              </div>
+              
+          
+             
+          
+          <div class="daily">
+          </div>
+          <input type="button" class="edit_button1" value="Edit" class="edit">
+          <input type="button" class="save_button1" value="Save" class="save">
+          <input type="button" value="Delete" class="delete">
+          
+            </div>
+          </div>
+          <button class="log-out">Log out</button>
       </div>
     </div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script type="text/javascript" src="workout.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script type="text/javascript" src="workout.js"></script>
 </body>
 </html>
+
