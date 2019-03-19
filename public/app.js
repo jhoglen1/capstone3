@@ -1,34 +1,6 @@
 const authToken = localStorage.getItem("Bearer");
 
-    let data = {
-        "day": "Monday",
-        "miles": 25,
-        "hr": 130
-    };
-fetch ('/api/authorize/login/', {
-  method: 'POST',
-  headers: {
-      'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(data)
-})
-.then(response => {
-  
-  if (response.ok) {
-      return response.json();
-  } else {
-      throw new Error(response.statusText);
-  }
-})
-.then (responseJson => {
-  
-  localStorage.setItem('Bearer', responseJson.token);
-  
-  $(location).attr("href", "./home.html")
-})
-.catch(error => {
-  console.log(error);
-}); 
+   
 
 function hideAllPages() {
     $("#landing-page").hide();
@@ -96,44 +68,7 @@ $(".login-form").on("submit", function(e) {
     $("#landing-page").show();
   });
 
-  /* workouts page */
 
-  $("#workouts-page").on("click", ".details", function() {
-    hideAllPages();
-  
-
-  let index = $(this)
-    .parent(".workout-section")
-    .attr("data-index");
-  let workout = state.workouts[index];
-
-  
-});
-
-$(".update").on("click", function() {
-  hideAllPages();
-  $("#edit-page").show();
-});
-
-$("#workout").on("click", function() {
-  hideAllPages();
-  $("#edit-page").show();
-});
-
-$("#log-out").on("click", function() {
-  hideAllPages();
-  $("#landing-page").show();
-  localStorage.setItem("authToken", "");
-  $("#log-out").hide();
-});
-
-$("#workouts-page").on("click", ".delete", function() {
-  let id = $(this)
-    .parent(".workout-section")
-    .attr("data-id");
-  deleteWorkout(id);
-  showWorkoutsPage();
-});
 
 
   /* registering page */
@@ -142,7 +77,7 @@ $("#workouts-page").on("click", ".delete", function() {
 function register(user) {
     let settings = {
       url: "api/user/",
-      type: "POST",
+      method: "POST",
       contentType: "application/json",
       data: JSON.stringify(user),
       success: function(data) {
@@ -164,17 +99,18 @@ function register(user) {
     $.ajax(settings);
   }
   
+
+
   function login(userInfo) {
     let settings = {
-      url: "/api/auth/login",
-      type: "POST",
+      url: "/api/authorize/login",
+      method: "POST",
       contentType: "application/json",
       data: JSON.stringify(userInfo),
       success: function(data) {
         console.log("successfully logged in");
         localStorage.setItem("authToken", data.authToken);
-        state.token = data.authToken;
-        showWorkoutsPage();
+        $(location).attr("href","./workout.html")
         $("#log-out").show();
       },
       error: function(err) {
@@ -185,3 +121,7 @@ function register(user) {
     $.ajax(settings);
   
   }
+
+  
+  
+  
