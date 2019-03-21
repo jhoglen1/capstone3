@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cycling-Pro</title>
+    <title>Cycle-Pro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Cycling Pro</h1>
+  <h1 id="cycle">Cycle-Pro</h1>
   
 
-
+<div id="works-page" hidden>
+        <div class="works-section">
+          <button id="workout">Add a workout</button>
+          <h4>workoutss</h4>
+          <br />
+          <div id="workout-results"></div>
+        </div>
+      </div>
+  
  
 
      
@@ -19,35 +27,49 @@
 
     <div id="workouts-page" >
       <div class="workout-section">
-          <h2>Workouts</h2>
-        <button id="work">Add a workout</button>
+        
+        <button class="work">Create a workout</button>
         
        
         <br />
         <div id="workout-results" ></div>
-        <div class="daily" hidden>
-              <div class="content">
-                <input placeholder="Day" type="text" id="today" required>
-              </div>
-              <div class="content">
-                <input placeholder="Miles" type="text" id="today_miles">
-              </div>
-              <div class="content">
-                <input placeholder="HR" type="text" id="today_HR" required>
-              </div>
-              
-          
-             
-          
-          <div class="daily">
-          </div>
-          <input type="button" class="edit_button1" value="Edit" class="edit">
-          <input type="button" class="save_button1" value="Save" class="save">
-          <input type="button" value="Delete" class="delete">
-          
-            </div>
-          </div>
-          <button class="log-out">Log out</button>
+             <div id="work-page" hidden>
+        <form role="form" accept-charset="UTF-8" class="edit-form">
+          <fieldset>
+            <legend>Workouts</legend>
+            <label for="day">Day </label>
+            <input
+              type="text"
+              placeholder="Type here"
+              name="day"
+              id="day"
+              required
+            />
+            
+            
+            <label for="miles">Miles</label>
+            <input
+              type="text"
+              placeholder="Type here"
+              name="miles"
+              id="miles"
+              required
+            />
+            <label for="HR">Heart Rate</label>
+            <input
+              type="text"
+              placeholder="Type here"
+              name="hr"
+              id="hr"
+              required
+            />
+            <button class="create-workout">Submit</button>
+            <button class="log-out">Log out</button>
+            <button class="clear">Clear</button>
+          </fieldset>
+        </form>
+      </div>
+        
       </div>
     </div>
 

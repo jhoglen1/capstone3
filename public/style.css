@@ -14,11 +14,17 @@ body{
   }
   h1{
       font-size: 45px;
+     }
+  h2 {
+    font-size: 35px;
   }
   #landing-page{
       background-color: skyblue;
       width: 75%;
       margin: auto;
+  }
+  p{
+  font-size: 20px;
   }
 
       button{
@@ -43,7 +49,7 @@ fieldset {
   }
   
   .login-form {
-    width: 40%;
+    width: 30%;
   padding: 40px;
   border-radius: 3px;
   background:skyblue;
@@ -80,14 +86,18 @@ fieldset {
   
   button[type="submit-login"] {
     height: auto;
-  font-size: 22px;
-  font-weight: 250;
-  text-align: center;
-  color: black;
-  background: whitesmoke;
-  border: 0;
-  cursor: pointer;
-  margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 250;
+    text-align: center;
+    color: black;
+    background: whitesmoke;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+  
+    padding: 10px;
+    border-radius: 5px;
+   
   }
   
   .back-to-landing {
@@ -100,7 +110,7 @@ fieldset {
     border: 0;
     cursor: pointer;
     margin-bottom: 0;
-    float: right;
+   
     padding: 10px;
     border-radius: 5px;
   }
@@ -183,4 +193,24 @@ button[type="submit-signup"] {
   color: red;
 }
     
+
+/* workout page */
+
+.edit-form{
+  font-size: 45px;
+  margin-bottom: 25px;
+}
+
+
+form{
+  display: inline-block;
+  text-align: center;
+  font-size: 30px;
+
+}
+#cycle{
+  font-size: 80px;
+  margin:auto;
+}
+
  
