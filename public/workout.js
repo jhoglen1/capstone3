@@ -8,7 +8,7 @@
 
 
   
-    getWorkouts();
+  getWorkouts();
    
 
    
@@ -22,7 +22,6 @@
 
       $(".create-workout").on("click", function(e) {
         e.preventDefault();
-        $("fieldset").hide();
         $(".back").show();
      
        
@@ -36,15 +35,21 @@
         id: $('#id').val()
       };
        addWorkout(workout);
+       
+       
     });
 
-    /*$(".back-to-workouts").on("click", function(e) {
+    $(".back-to-workouts").on("click", function(e) {
       e.preventDefault();
       
-    }); */
+    }); 
 
-    $("#workouts-page").on("click", ".delete", function() {
-      deleteWorkout();
+    $("#workouts-page").on("click", ".delete", function(e) {
+      e.preventDefault();
+      let id = $(this).attr("data-id");
+     
+  
+          deleteWorkout(id);
         }); 
 
     
@@ -77,16 +82,18 @@
         let workout = workoutArray[i];
       
         $('#results-list').append(
-          `<section class="workout-section" data-index="${i}" data-id="${workout.id}"></section>
+          `<section class="workout-section" data-index="${i}">   </section>
          <ul>
         <li>${workout.day}</li>
          <li>miles: ${workout.miles}</li>
           <li>hr: ${workout.hr}</li>
-          <button class="delete">Delete</button>
+          <button class="delete" data-id="${workout.id}">Delete</button>
          
       
          </li>
-         </ul>`)
+         </ul>
+    
+         `)
          };
         }
 
@@ -118,7 +125,7 @@
     }
 
     function deleteWorkout(id) {
-      console.log(`Deleting workout ${id}`);
+      console.log(id);
       let authToken = localStorage.getItem("authToken");
       $.ajax({
         url: `/api/workouts/${id}`,
@@ -137,17 +144,7 @@
     }
 
 
-   /* function doWorkoutDelete() {
-      $(".delete").click(function(e) {
-        let workouts = {
-          day: $("#day").val(),
-          miles: $("#miles").val(),
-          hr: $("#hr").val(),
-          id: $("#id").val()
-        };
-        deleteWorkout(workout);
-      });
-    } */
-
-
   
+
+    
+    
