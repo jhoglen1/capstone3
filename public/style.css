@@ -18,12 +18,13 @@ body{
   h2 {
     font-size: 35px;
   }
+
   #landing-page{
       background-color: skyblue;
       width: 75%;
       margin: auto;
   }
-  p{
+  .text-container,.main-section{
   font-size: 20px;
   }
 
@@ -211,6 +212,28 @@ form{
 #cycle{
   font-size: 80px;
   margin:auto;
+}
+
+#results-list{
+  text-align: center;
+  margin-right: 85px;
+
+}
+
+
+li{
+  color:black;
+  font-size: 35px;
+  display: inline;
+  padding : 15px;
+  box-sizing: border-box;
+  
+ 
+ 
+  
+  
+  
+  
 }
 
  

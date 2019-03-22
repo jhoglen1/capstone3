@@ -3,39 +3,53 @@
  
   $(".log-out").on("click", function(e) {
     e.preventDefault();
-    $("#workouts-page").hide();
     $(location).attr("href","./index.html")
   });
-  $(".work").on("click", function(e) {
-    e.preventDefault();
-    $("#work-page").show();
-    $(".work").hide();
-  });
+
+
+  
+    getWorkouts();
+   
+
    
   $(".clear").on("click", function(e) {
     $("form").trigger("reset");
   });
-  
-
-   
-
-    $(".edit-form").on("submit", function(e) {
+  $(".edit-form").on("submit", function(e) {
       e.preventDefault();
+  })
    
 
+      $(".create-workout").on("click", function(e) {
+        e.preventDefault();
+        $("fieldset").hide();
+        $(".back").show();
+     
+       
+       
+       
+     
       let workout = {
         day: $("#day").val(),
         miles: $("#miles").val(),
-        hr: $("#hr").val()
+        hr: $("#hr").val(),
+        id: $('#id').val()
       };
        addWorkout(workout);
     });
-    
-    $(".back-to-workouts").on("click", function(e) {
+
+    /*$(".back-to-workouts").on("click", function(e) {
       e.preventDefault();
       
-    });
+    }); */
 
+    $("#workouts-page").on("click", ".delete", function() {
+      deleteWorkout();
+        }); 
+
+    
+    
+    
     function getWorkouts() {
       console.log("Getting workouts information");
       let authToken = localStorage.getItem("authToken");
@@ -47,36 +61,37 @@
         },
         contentType: "application/json",
         success: function(workouts){
+          displayResults(workouts);
         },
         error: function(error) {
           console.log("error");
         }
       });
     }
-
-
-
-    function showWorkoutResults(workoutArray) {
+   
+    function displayResults(workoutArray) {
+  
       console.log(workoutArray);
-      $("#workout-results").empty();
-      for (const i = 0; i < workoutArray.length; i++) {
-        let project = workoutArray[i];
-        $("#workout-results").append(`
-        <section class="works-section" data-index="${i}" data-id="${workout.id}">
-    <p>${workout.workoutday}</p>
-          <ul>
-            <li>day:${workouts.day}</li>
-            <li>miles:${workouts.miles}</li>
-            <li>heartrate:${workouts.hr}</li>
-           
-          </ul>
-          <button class="details">View Project Details</button>
+     $('#results-list').empty();
+      for (let i = 0; i < workoutArray.length; i++){
+        let workout = workoutArray[i];
+      
+        $('#results-list').append(
+          `<section class="workout-section" data-index="${i}" data-id="${workout.id}"></section>
+         <ul>
+        <li>${workout.day}</li>
+         <li>miles: ${workout.miles}</li>
+          <li>hr: ${workout.hr}</li>
           <button class="delete">Delete</button>
-        </section>
-      `);
-      }
-    } 
- 
+         
+      
+         </li>
+         </ul>`)
+         };
+        }
+
+      
+
 
     function addWorkout(workout){
       console.log("Adding workout", workout);
@@ -92,7 +107,8 @@
         data: JSON.stringify(workout),
         success: function(data) {
           console.log("WORKOUT CREATED");
-          
+          getWorkouts();
+          displayResults(workouts);
         },
         error: function(err) {
           console.log(err);
@@ -111,8 +127,8 @@
           Authorization: `Bearer ${authToken}`
         },
         method: "DELETE",
-        success: function(data) {
-          getWorkouts();
+        success: function(workout) {
+         getWorkouts();
         },
         error: function(err) {
           console.log(err);
@@ -121,7 +137,17 @@
     }
 
 
- 
+   /* function doWorkoutDelete() {
+      $(".delete").click(function(e) {
+        let workouts = {
+          day: $("#day").val(),
+          miles: $("#miles").val(),
+          hr: $("#hr").val(),
+          id: $("#id").val()
+        };
+        deleteWorkout(workout);
+      });
+    } */
 
 
-
+  

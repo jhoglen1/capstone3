@@ -38,8 +38,12 @@ $(".login-form").on("submit", function(e) {
       password: $("#login-password").val()
     };
     login(userInfo);
+    
   });
   
+ 
+
+
   $(".back-to-landing").on("click", function(e) {
     e.preventDefault();
     hideAllPages();
@@ -111,7 +115,7 @@ function register(user) {
         console.log("successfully logged in");
         localStorage.setItem("authToken", data.authToken);
         $(location).attr("href","./workout.html")
-        $("#log-out").show();
+       // $("#log-out").show();
       },
       error: function(err) {
         console.log(err);
