@@ -8,7 +8,7 @@
 
 
   
-  getWorkouts();
+  
    
 
    
@@ -142,6 +142,7 @@
         }
       });
     }
+    getWorkouts();
 
 
   
