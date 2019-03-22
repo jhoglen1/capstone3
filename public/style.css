@@ -3,18 +3,31 @@
 body{
     font-family: futura;
     text-align:center;
-  
-    
     background-color:black;
     margin:0;
     padding:0;
-    
    }
-  body img{
-    width: 75vh;
-     
-   
-  }
+
+   .image-container img {
+     width: 100%;
+   }
+
+   .image-container{
+     display: inline-block;
+     width: 50%;
+     font-size: 20px;
+   }
+
+   .text-container {
+    
+     float: right;
+     width: 50%;
+     text-align: center;
+     margin-top: 15%;
+    
+
+   }
+
   h1{
       font-size: 45px;
      }
@@ -29,7 +42,7 @@ body{
       height: 95%;
       margin: auto;
   }
-  .text-container,.main-section{
+  .main-section{
   font-size: 20px;
   }
 
@@ -44,7 +57,6 @@ body{
       cursor: pointer;
       margin-bottom: 25px;
       }
-  
 
 /* login */
 #login-page{
@@ -231,6 +243,7 @@ form{
   background-color: darkgray;
   padding: 25px;
   width: 65%;
+  font-size: 30px;
 
 }
 .bike{
@@ -250,10 +263,12 @@ form{
 
 li{
   color:whitesmoke;
-  font-size: 35px;
   display: inline;
-  padding : 15px;
+  padding : 20px;
   box-sizing: border-box;
+  }
+  legend{
+    margin-bottom: 25px;
   }
 
  
