@@ -1,20 +1,43 @@
 
+  let authToken = localStorage.getItem("authToken");
+  $.ajax({
+    method: "GET",
+    url: "/api/protected",
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    },
+    contentType: "application/json",
+    success: function(workouts){
+   console.log("success")
+    },
+    error: function(error) {
+      console.log("error");
+      $(location).attr("href","./index.html")
+    
+      
+    }
+  });
 
  
   $(".log-out").on("click", function(e) {
     e.preventDefault();
     $(location).attr("href","./index.html")
+    localStorage.setItem("authToken","");
   });
 
 
   
+
   
    
 
    
-  $(".clear").on("click", function(e) {
-    $("form").trigger("reset");
-  });
+  
+  
+
+
+
+  
   $(".edit-form").on("submit", function(e) {
       e.preventDefault();
   })
@@ -23,7 +46,7 @@
       $(".create-workout").on("click", function(e) {
         e.preventDefault();
         $(".back").show();
-     
+       
        
        
        
@@ -36,7 +59,9 @@
       };
        addWorkout(workout);
        
-       
+       $("#day").val("");
+       $("#miles").val("");
+       $("#hr").val("");
     });
 
     $(".back-to-workouts").on("click", function(e) {
@@ -115,7 +140,7 @@
         success: function(data) {
           console.log("WORKOUT CREATED");
           getWorkouts();
-          displayResults(workouts);
+          displayResults(workout);
         },
         error: function(err) {
           console.log(err);

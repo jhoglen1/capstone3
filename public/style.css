@@ -12,25 +12,10 @@ body{
      width: 100%;
    }
 
-   .image-container{
-     display: inline-block;
-     width: 50%;
-     font-size: 20px;
-   }
-
-   .text-container {
-    
-     float: right;
-     width: 50%;
-     text-align: center;
-     margin-top: 15%;
-    
-
-   }
-
   h1{
       font-size: 45px;
      }
+
   h2 {
     font-size: 35px;
   }
@@ -271,4 +256,26 @@ li{
     margin-bottom: 25px;
   }
 
+  @media only screen and (min-width: 800px) {
+
+    body {
+      height: 700px;
+    }
+    .image-container img {
+      width: 100%;
+    }
+ 
+    .image-container{
+      display: inline-block;
+      width: 50%;
+      font-size: 20px;
+    }
+ 
+    .text-container {
+     
+      float: right;
+      width: 50%;
+      text-align: center;
+    }
+  }
  
