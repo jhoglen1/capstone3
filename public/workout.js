@@ -22,12 +22,11 @@
     localStorage.setItem("authToken","");
   });
 
- $(".edit-form").on("submit", function(e) {
-      e.preventDefault();
-  })
-   $(".create-workout").on("click", function(e) {
+
+   $("form").on("submit", function(e) {
         e.preventDefault();
         $(".back").show();
+        
        
         let workout = {
         day: $("#day").val(),
@@ -36,11 +35,28 @@
         id: $('#id').val()
       };
        addWorkout(workout);
+   
+        
+   
+       
        
        $("#day").val("");
        $("#miles").val("");
        $("#hr").val("");
+
+
     });
+  
+    $(".edit").on("click", function(e) {
+      e.preventDefault();
+      $(".save").show();
+    })
+      
+      
+  
+    
+    
+   
 
     $(".back-to-workouts").on("click", function(e) {
       e.preventDefault();
@@ -63,6 +79,7 @@
         },
         contentType: "application/json",
         success: function(workouts){
+          $('.hr').val();
           displayResults(workouts);
         },
         error: function(error) {
@@ -82,6 +99,8 @@
          <li>miles: ${workout.miles}</li>
           <li>hr: ${workout.hr}</li>
           <button class="delete" data-id="${workout.id}">Delete</button>
+          <button class="edit" data-id="${workout.id}">Edit</button>
+          <button class="save" data-id="${workout.id}" >Save</button>
           </li>
          </ul> `)
          };
@@ -101,6 +120,7 @@
         data: JSON.stringify(workout),
         success: function(data) {
           console.log("WORKOUT CREATED");
+          
           getWorkouts();
           displayResults(workout);
         },
@@ -129,7 +149,34 @@
         }
       });
     }
+  
+      
+         
+
+   function editWorkout(id) {
+      console.log(id);
+      let authToken = localStorage.getItem("authToken");
+      $.ajax({
+        url: `/api/workouts/${id}`,
+        headers: {
+          contentType: "application/json",
+          Authorization: `Bearer ${authToken}`
+        },
+        method: "PUT",
+        success: function(workout) {
+         editWorkout();
+        },
+        error: function(err) {
+          console.log(err);
+        }
+      });
+    } 
+     
+    
+
     getWorkouts();
+   
+   
 
 
   
