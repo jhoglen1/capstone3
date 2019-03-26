@@ -35,6 +35,7 @@
         id: $('#id').val()
       };
        addWorkout(workout);
+     
    
         
    
@@ -46,12 +47,11 @@
 
 
     });
+
+     
+     
   
-    $(".edit").on("click", function(e) {
-      e.preventDefault();
-      $(".save").show();
-    })
-      
+ 
       
   
     
@@ -94,13 +94,14 @@
         let workout = workoutArray[i];
        $('#results-list').append(
           `<section class="workout-section" data-index="${i}">   </section>
-         <ul>
-        <li>${workout.day}</li>
-         <li>miles: ${workout.miles}</li>
-          <li>hr: ${workout.hr}</li>
+         <ul> 
+         <li data-id="day_${workout.id}">${workout.day}</li>
+       
+         <li data-id="miles_${workout.id}">miles: ${workout.miles} </li>
+          <li data-id="hr_${workout.id}">hr: ${workout.hr} </li>
           <button class="delete" data-id="${workout.id}">Delete</button>
-          <button class="edit" data-id="${workout.id}">Edit</button>
-          <button class="save" data-id="${workout.id}" >Save</button>
+         
+          
           </li>
          </ul> `)
          };
@@ -131,6 +132,8 @@
       });
     }
 
+
+  
     function deleteWorkout(id) {
       console.log(id);
       let authToken = localStorage.getItem("authToken");
@@ -150,28 +153,13 @@
       });
     }
   
-      
-         
-
-   function editWorkout(id) {
-      console.log(id);
-      let authToken = localStorage.getItem("authToken");
-      $.ajax({
-        url: `/api/workouts/${id}`,
-        headers: {
-          contentType: "application/json",
-          Authorization: `Bearer ${authToken}`
-        },
-        method: "PUT",
-        success: function(workout) {
-         editWorkout();
-        },
-        error: function(err) {
-          console.log(err);
-        }
-      });
-    } 
+    $(".save").on("click",".save", function(e) {
+      e.preventDefault();
+      let currentId = $(this).attr("data-id");
+      deleteWorkout(currentId);
      
+    });
+  
     
 
     getWorkouts();

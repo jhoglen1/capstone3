@@ -43,8 +43,8 @@ body{
 
 /* login */
 #login-page{
-  background: url(https://images.unsplash.com/photo-1471506480208-91b3a4cc78be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60) no-repeat fixed;
-  background-size: cover;
+background: url(https://images.unsplash.com/photo-1471506480208-91b3a4cc78be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60) no-repeat fixed;
+background-size: cover;
 }
 
 fieldset {
@@ -122,7 +122,10 @@ fieldset {
 
 
   /* signup */
-
+#signup-page{
+  background: url(https://images.unsplash.com/photo-1494402492407-10b1117dd090?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60) no-repeat fixed;
+  background-size: cover;
+}
 
 fieldset {
   padding: 0;
@@ -228,6 +231,7 @@ form{
   width: 65%;
   font-size: 30px;
 
+
 }
 .bike{
   
@@ -276,4 +280,6 @@ li{
       text-align: center;
     }
   }
+ 
+  
  
