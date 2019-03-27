@@ -43,8 +43,12 @@ router.get("/", jwtAuth, (req, res) => {
         const message = `Missing \`${field}\` in request body`;
         console.error(message);
         return res.status(400).send(message);
+    
+
+      
       }
     }
+    
     workouts.create({
       day: req.body.day,
       miles: req.body.miles,
