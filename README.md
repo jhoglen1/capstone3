@@ -4,8 +4,8 @@ Live app : https://afternoon-temple-68307.herokuapp.com/
 
 
 <h2> Demo credentials:</h2> 
-username: Demo </br>
-password: demo123456</br>
+username: nicole </br>
+password: nicole1234</br>
 
 <h2> Summary </h2>
 
