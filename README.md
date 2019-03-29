@@ -35,8 +35,13 @@ On the main app page here is where youll be prompted to put in the day of the wo
 Once you submit your data it will be placed with the rest of your workouts you have posted. If there is an error you can delete it and re create the workout.
 
 
+<img width="1421" alt="Screen Shot 2019-03-28 at 8 28 14 PM" src="https://user-images.githubusercontent.com/45474374/55201163-1d4d6100-5198-11e9-8dba-f47f8e726347.png">
+
+If you have made a mistake you can hit the edit button, then change the issue and hit save. That will then update that workout.
+
+
 <h2> API </h2>
-This app is built wi the  implement a REST API with  CRUD operations.
+This app is built with the implement a REST API with CRUD operations.
 
 <h2> Technology </h2>
 This application is built with HTML, CSS, Javascript, jQuery, node.js, Express, Passport, Mocha/Chai and MongoDB.
