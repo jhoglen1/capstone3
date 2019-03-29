@@ -95,12 +95,18 @@
        $('#results-list').append(
           `<section class="workout-section" data-index="${i}">   </section>
          <ul> 
-         <li data-id="day_${workout.id}">Day: ${workout.day}</li>
+         <li data-day="${workout.day}">Day: ${workout.day}</li>
        
-         <li data-id="miles_${workout.id}">Miles: ${workout.miles} </li>
-          <li data-id="hr_${workout.id}">HR: ${workout.hr} </li>
+         <li data-miles="${workout.miles}">Miles: ${workout.miles} </li>
+
+          <li data-hr="${workout.hr}">HR: ${workout.hr} </li>
+         
+          
+         
+          
+
           <button class="delete" data-id="${workout.id}">Delete</button>
-          <button class="edit" data-id="${workout.id}">Edit</button>
+          <button class="edit" data-day="${workout.day}"data-miles="${workout.miles}"data-hr="${workout.hr}"data-wid="${workout.id}">Edit</button>
          
           
           </li>
@@ -160,45 +166,66 @@ $("#edit-box").hide();
 
 $("#workouts-page").on("click",".edit", function(e) {
   e.preventDefault();
+  let dayweek = $(this).attr("data-day");
+  $("#dayweek").val(dayweek);
+  let weekmiles = $(this).attr("data-miles");
+  $("#weekmiles").val(weekmiles);
+  let heart = $(this).attr("data-hr");
+  $("#heart").val(heart);
+  let wid = $(this).attr("data-wid");
+  $("#wid").val(wid);
   $("#edit-box").show();
 })
-  let day = $(this).data('day')
-  let miles = $(this).data('miles')
-  let hr = $(this).data('hr')
-  let id = $(this).data('id')
-  $("#edit-box").show();
+
+
+
   
-  function editWorkout(workout) {
-     console.log(workout);
+  
+  
+  
+ 
+
+$("#workouts-page").on("click", ".save", function(e) {
+  e.preventDefault();
+  let dayweek = $("#dayweek").val();
+  let weekmiles = $("#weekmiles").val();
+  let heart = $("#heart").val();
+  let wid = $("#wid").val();
+
+  editWorkout(wid,dayweek,weekmiles,heart);
+  });
+
+
+
+ 
+
+
+  function editWorkout(id,day,miles,hr) {
+      console.log(id);
      let authToken = localStorage.getItem("authToken");
      $.ajax({
        url: `/api/workouts/${id}`,
       
        headers: {
-         contentType: "application/json",
+        "Content-Type": "application/json",
          Authorization: `Bearer ${authToken}`
        },
        method: "PUT",
-       data: JSON.stringify(workout),
+       data: JSON.stringify({"day":day,"miles":parseInt(miles),"hr":parseInt(hr),"id":id}),
       
-       success: function(id) {
-        getWorkouts();
+       success: function(workouts) {
+         location.reload();
+        
        },
        error: function(err) {
          console.log(err);
        }
      });
    } 
-    
-   $("#edit-box").on("click",".save", function(e) {
-    e.preventDefault();
-    let id = $(this).attr("data-id");
-    $("#edit-box").hide();
-    editWorkout();
-   
-  });
+  
    getWorkouts();
    
+  
    
 
 
